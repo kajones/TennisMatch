@@ -19,9 +19,9 @@ namespace TennisMatch.Tests
             randomGenerator.Setup(call => call.DoesPlayer1WinGame()).Returns(true);
             randomGenerator.Setup(call => call.WhichScore(4)).Returns(player2Score);
 
-            var gameResults = new GameResults(randomGenerator.Object);
+            var gameResults = new GameResultGenerator(randomGenerator.Object);
 
-            var game = gameResults.GetResultForWinner();
+            var game = gameResults.GetResult();
 
             game.Player1Score.Should().Be(expectedPlayer1Score);
             game.Player2Score.Should().Be(expectedPlayer2Score);
@@ -38,9 +38,9 @@ namespace TennisMatch.Tests
             randomGenerator.Setup(call => call.DoesPlayer1WinGame()).Returns(false);
             randomGenerator.Setup(call => call.WhichScore(4)).Returns(player1Score);
 
-            var gameResults = new GameResults(randomGenerator.Object);
+            var gameResults = new GameResultGenerator(randomGenerator.Object);
 
-            var game = gameResults.GetResultForWinner();
+            var game = gameResults.GetResult();
 
             game.Player1Score.Should().Be(expectedPlayer1Score);
             game.Player2Score.Should().Be(expectedPlayer2Score);

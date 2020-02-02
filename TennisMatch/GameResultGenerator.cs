@@ -3,7 +3,7 @@ using TennisMatch.Models;
 
 namespace TennisMatch
 {
-    public class GameResults
+    public class GameResultGenerator : IGameResultGenerator
     {
         private IRandomGenerator randomGenerator;
 
@@ -23,12 +23,12 @@ namespace TennisMatch
                 new Game(ScoreValues.Forty, ScoreValues.GameWon) // Deuce game then player 2 won two points
             };
 
-        public GameResults(IRandomGenerator randomGenerator)
+        public GameResultGenerator(IRandomGenerator randomGenerator)
         {
             this.randomGenerator = randomGenerator;
         }
 
-        public Game GetResultForWinner()
+        public Game GetResult()
         {
             var player1WinsGame = randomGenerator.DoesPlayer1WinGame();
 
