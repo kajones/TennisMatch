@@ -27,7 +27,7 @@ namespace TennisMatch.Models
 
         public void Play()
         {
-            while(Winner == null)
+            for(var setNo = 1; setNo < 4; setNo++)
             {
                 var set = new Set(Player1, Player2, gameResultGenerator);
                 set.Play();
@@ -35,6 +35,8 @@ namespace TennisMatch.Models
                 Sets.Add(set);
 
                 CheckForWinner();
+
+                if (Winner != null) break;
             }
         }
 
