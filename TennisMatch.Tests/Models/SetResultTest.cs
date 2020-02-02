@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TennisMatch.Models;
 
-namespace TennisMatch.Tests
+namespace TennisMatch.Tests.Models
 {
     public class SetResultTest
     {

@@ -23,6 +23,7 @@ namespace TennisMatch
 
         private static IGameResultGenerator GetGameResultGenerator()
         {
+            // Ultimately would be looking to have IoC container involved
             var randomGenerator = new RandomGenerator();
             return new GameResultGenerator(randomGenerator);
         }
