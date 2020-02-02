@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace TennisMatch.Models
 {
@@ -45,6 +45,21 @@ namespace TennisMatch.Models
             if (winner == null) return;
 
             Winner = winner.Key;
+        }
+
+        public string GetResult()
+        {
+            var player1First = Winner == Player1;
+
+            var resultBuilder = new StringBuilder();
+            foreach(var set in Sets)
+            {
+                if (player1First)
+                    resultBuilder.Append($"{set.Player1Games}-{set.Player2Games} ");
+                else
+                    resultBuilder.Append($"{set.Player2Games}-{set.Player1Games} ");
+            }
+            return resultBuilder.ToString().Trim();
         }
     }
 }

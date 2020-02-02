@@ -40,6 +40,8 @@ namespace TennisMatch.Tests
             match.Play();
 
             match.Winner.Should().Be(player1);
+
+            match.GetResult().Should().Be("6-0 6-0");
         }
 
         [Test]
@@ -55,6 +57,8 @@ namespace TennisMatch.Tests
             match.Play();
 
             match.Winner.Should().Be(player1);
+
+            match.GetResult().Should().Be("6-0 0-6 6-0");
         }
 
         [Test]
@@ -70,6 +74,8 @@ namespace TennisMatch.Tests
             match.Play();
 
             match.Winner.Should().Be(player2);
+
+            match.GetResult().Should().Be("0-6 6-0 6-0");
         }
 
         [Test]
@@ -85,6 +91,8 @@ namespace TennisMatch.Tests
             match.Play();
 
             match.Winner.Should().Be(player2);
+
+            match.GetResult().Should().Be("6-0 6-0");
         }
 
         private IGameResultGenerator GetGeneratorForSetsWon(bool[] setWonByPlayer1)

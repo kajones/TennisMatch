@@ -52,6 +52,9 @@ namespace TennisMatch.Models
 
         private bool HasWon(int playerAGamesWon, int playerBGamesWon)
         {
+            // Need to win by getting at least six games
+            // and have a margin of two or more games over the opponent
+            // i.e. 6-4 is a win but 6-5 is not and you need 7-5
             if (playerAGamesWon >= 6 && (playerAGamesWon - playerBGamesWon) >= 2)
                 return true;
 
