@@ -7,6 +7,9 @@ namespace TennisMatch.Models
         public ScoreValues Player1Score { get; }
         public ScoreValues Player2Score { get; }
 
+        public bool Player1IsWinner { get; }
+        public bool Player2IsWinner { get; }
+
         public Game(ScoreValues player1Score, ScoreValues player2Score)
         {
             if (player1Score == ScoreValues.GameWon && player2Score == ScoreValues.GameWon)
@@ -16,6 +19,9 @@ namespace TennisMatch.Models
 
             Player1Score = player1Score;
             Player2Score = player2Score;
+
+            Player1IsWinner = Player1Score == ScoreValues.GameWon;
+            Player2IsWinner = Player2Score == ScoreValues.GameWon;
         }
     }
 }

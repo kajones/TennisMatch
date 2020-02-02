@@ -34,6 +34,9 @@ namespace TennisMatch.Tests
 
             game.Player1Score.Should().Be(ScoreValues.GameWon);
             game.Player2Score.Should().Be(player2Score);
+
+            game.Player1IsWinner.Should().BeTrue();
+            game.Player2IsWinner.Should().BeFalse();
         }
 
         [Test]
@@ -47,6 +50,9 @@ namespace TennisMatch.Tests
 
             game.Player1Score.Should().Be(player1Score);
             game.Player2Score.Should().Be(ScoreValues.GameWon);
+
+            game.Player1IsWinner.Should().BeFalse();
+            game.Player2IsWinner.Should().BeTrue();
         }
     }
 }
